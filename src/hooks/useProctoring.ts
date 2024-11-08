@@ -9,6 +9,7 @@ import { useTabFocusDetection } from './useTabFocusDetection'
 import { useCopyDisable } from './useCopyDisable'
 import { useDisableContextMenu } from './useDisableContextMenu'
 import { useSelectionDisable } from './useSelectionDisable'
+import ProctorService from './ProctorService'
 
 type Props = {
   preventContextMenu?: boolean
@@ -55,3 +56,5 @@ export function useProctoring({
     tabFocus: { status: tabFocusStatus },
   } as const
 }
+
+export { ProctorService }

@@ -21,6 +21,7 @@
   "module": "./dist/react-proctoring.es.js",
   "types": "./dist/index.d.ts",
   "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.18",
     "react-device-detect": "^2.2.3"
   },
   "description": "A headless proctoring system for built for React",
