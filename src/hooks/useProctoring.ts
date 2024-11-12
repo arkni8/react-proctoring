@@ -81,7 +81,7 @@ type ProctorObject = {
  *     monitoring.
  */
 
-export function useProctoring({
+function useProctoring({
   preventTabSwitch = false,
   forceFullScreen = false,
   preventContextMenu = false,
@@ -117,4 +117,4 @@ export function useProctoring({
   }
 }
 
-export { ProctorService }
+module.exports = useProctoring

@@ -1,3 +1,5 @@
+#### <i>!NOTICE: This is majorly <a href="https://github.com/ansh-saini/react-proctoring">Ansh Saini's</a> work. I only added the cam detection bit. Major credit goes to him. I'm only publishing this for ease of use </i>
+
 # Overview
 
 This is a headless library which only gives you some flags. What you do with that information is totally upto you. The UI for handling various use cases is completely in your hands.
