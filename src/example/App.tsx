@@ -9,12 +9,13 @@ import Exam from './components/Exam'
 function App() {
   const [examHasStarted, setExamHasStarted] = useState(false)
 
-  const { fullScreen, tabFocus } = useProctoring({
+  const { fullScreen, tabFocus, camDetection } = useProctoring({
     forceFullScreen: true,
     preventTabSwitch: true,
     preventContextMenu: true,
     preventUserSelection: true,
     preventCopy: true,
+    monitorCam: true,
   })
 
   if (!examHasStarted) {
@@ -32,18 +33,20 @@ function App() {
   }
 
   const getContent = () => {
+    debugger
     if (fullScreen.status === 'off') return <ExamPaused />
     if (tabFocus.status === false) return <ExamPaused />
 
-    return <Exam />
+    return <Exam violationStatus={camDetection.violationStatus} />
   }
 
   return (
     <>
       {/* For debugging purpose */}
       {/* <pre>{JSON.stringify({ fullScreen, tabFocus }, null, 2)}</pre> */}
-
+      <video ref={camDetection.videoRef} autoPlay playsInline></video>
       <div className="test-container">{getContent()}</div>
+
       <Alerts fullScreen={fullScreen} tabFocus={tabFocus} />
     </>
   )

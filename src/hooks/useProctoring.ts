@@ -10,6 +10,8 @@ import { useCopyDisable } from './useCopyDisable'
 import { useDisableContextMenu } from './useDisableContextMenu'
 import { useSelectionDisable } from './useSelectionDisable'
 import ProctorService from './ProctorService'
+import { RefObject } from 'react'
+import { useCam } from './useCam'
 
 type Props = {
   preventContextMenu?: boolean
@@ -17,6 +19,7 @@ type Props = {
   preventCopy?: boolean
   forceFullScreen?: boolean
   preventTabSwitch?: boolean
+  monitorCam?: boolean
 }
 
 export type ProctoringData = {
@@ -30,6 +33,7 @@ export function useProctoring({
   preventContextMenu = false,
   preventUserSelection = false,
   preventCopy = false,
+  monitorCam = false,
 }: Props) {
   useDisableContextMenu({ disabled: preventContextMenu === false })
 
@@ -50,10 +54,12 @@ export function useProctoring({
   const { fullScreenStatus } = useFullScreenDetection({
     disabled: forceFullScreen === false,
   })
+  const { videoRef, violationStatus } = useCam({ disabled: monitorCam === false })
 
   return {
     fullScreen: { status: fullScreenStatus, trigger: triggerFullscreen },
     tabFocus: { status: tabFocusStatus },
+    camDetection: { violationStatus, videoRef },
   } as const
 }
 

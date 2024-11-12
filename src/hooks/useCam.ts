@@ -1,23 +1,28 @@
 import { RefObject, useEffect, useMemo, useRef, useState } from 'react'
 import ProctorService from './ProctorService'
 
-export const useCam = () => {
+export const useCam = ({ disabled }: { disabled?: boolean }) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const proctorRef = useRef<typeof ProctorService>(ProctorService)
 
-  const [violationStatus, setViolationStatus] = useState({
+  const [violationStatus, setViolationStatus] = useState<{
+    facesDetected: number
+    objectDetected: string[]
+  }>({
     facesDetected: 0,
-    objectDetected: [''],
+    objectDetected: [],
   })
 
   const proctor = useMemo(() => proctorRef.current(), [])
 
   useEffect(() => {
-    startWebcam()
+    if (!disabled) {
+      startWebcam()
+    }
 
     return () => {
       if (videoRef.current && videoRef.current.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach((track) => track.stop())
+        ;(videoRef.current.srcObject as MediaStream).getTracks().forEach((track) => track.stop())
       }
     }
   }, [])
@@ -44,7 +49,6 @@ export const useCam = () => {
   }
 
   const objectDetection = (videoRef: RefObject<HTMLVideoElement>) => {
-    debugger
     if (videoRef.current && videoRef.current.readyState >= 2 && proctor.objectDetector) {
       const detections = proctor.objectDetector.detectForVideo(videoRef.current, performance.now())
       //   setViolationStatus((prev) => ({ ...prev, objectDetected: detections.detections.length }))

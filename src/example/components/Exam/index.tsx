@@ -1,19 +1,22 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { RefObject, useEffect, useMemo, useRef, useState } from 'react'
 import questions from './questions'
 import ProctorService from '../../../hooks/ProctorService'
-import { useCam } from '../../../hooks/useCam'
 import ExamPaused from './ExamPaused'
 
-type Props = {}
+type Props = {
+  violationStatus: {
+    facesDetected: number;
+    objectDetected: string[];
+  }
+}
 
-const Exam = (props: Props) => {
-  const { videoRef, violationStatus } = useCam()
+const Exam = ({ violationStatus }: Props) => {
 
 
 
   return (
     <>
-      <video ref={videoRef} autoPlay playsInline></video>
+      {/* <video ref={videoRef} autoPlay playsInline></video> */}
       {/* {violationStatus.facesDetected > 1 && <span style={{ color: "red" }}>{violationStatus.facesDetected} faces detected</span>} */}
 
       {violationStatus.facesDetected < 1 || violationStatus.facesDetected > 1 || violationStatus.objectDetected.filter((object) => object !== "person").length > 0 ? <ExamPaused /> :
