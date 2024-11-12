@@ -3,7 +3,7 @@
 // import { useDisableContextMenu } from './hooks/useDisableContextMenu'
 // import { useFullScreenDetection } from './hooks/useFullScreenDetection'
 // import { useIntersectionObserver } from './hooks/useIntersectionObserver'
-import { useProctoring } from './hooks/useProctoring'
+import { useProctoring, ProctorObject } from './hooks/useProctoring'
 // import { useSelectionDisable } from './hooks/useSelectionDisable'
 // import { useTabFocusDetection } from './hooks/useTabFocusDetection'
 
@@ -14,6 +14,7 @@ export {
   //   useFullScreenDetection,
   //   useIntersectionObserver,
   useProctoring,
+  type ProctorObject,
   //   useSelectionDisable,
   //   useTabFocusDetection,
 }

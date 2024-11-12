@@ -27,7 +27,7 @@ export type ProctoringData = {
   tabFocus: { status: boolean }
 }
 
-type ProctorObject = {
+export type ProctorObject = {
   fullScreen: {
     status: FullScreenStatus
     trigger: () => void
@@ -81,7 +81,7 @@ type ProctorObject = {
  *     monitoring.
  */
 
-function useProctoring({
+export function useProctoring({
   preventTabSwitch = false,
   forceFullScreen = false,
   preventContextMenu = false,
@@ -116,5 +116,3 @@ function useProctoring({
     camDetection: { violationStatus, videoRef },
   }
 }
-
-module.exports = useProctoring
