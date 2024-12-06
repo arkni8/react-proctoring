@@ -393,6 +393,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@mediapipe/tasks-vision@^0.10.18":
+  version "0.10.18"
+  resolved "https://registry.yarnpkg.com/@mediapipe/tasks-vision/-/tasks-vision-0.10.18.tgz#9ea0f0bf7506378c55ee661fa70aa0910f21f9b5"
+  integrity sha512-NRIlyqhGUz1Jdgcs6YybwPRhLK6dgeGAqAMXepIczEQ7FmA/0ouFtgMO1g9SPf/HaDSO8pNVdP54dAb9s9wj/Q==
+
 "@microsoft/api-extractor-model@7.26.4":
   version "7.26.4"
   resolved "https://registry.yarnpkg.com/@microsoft/api-extractor-model/-/api-extractor-model-7.26.4.tgz#77f2c17140249b846a61eea41e565289cc77181f"

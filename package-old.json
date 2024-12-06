@@ -1,7 +1,7 @@
 {
-  "name": "react-proctoring-1",
+  "name": "react-proctoring",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -31,20 +31,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/4x3l3r8/react-proctoring.git"
+    "url": "https://github.com/ansh-saini/react-proctoring"
   },
   "author": "Ansh Saini",
-  "contributors": [
-    {
-      "name": "Daniel Adesanya",
-      "email": "danieladesanya25@gmail.com",
-      "url": "https://github.com/4x3l3r8"
-    }
-  ],
   "bugs": {
-    "url": "https://github.com/4x3l3r8/react-proctoring/issues"
+    "url": "https://github.com/ansh-saini/react-proctoring/issues"
   },
-  "homepage": "https://github.com/4x3l3r8/react-proctoring#readme",
+  "homepage": "https://github.com/ansh-saini/react-proctoring#readme",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.13.0",
